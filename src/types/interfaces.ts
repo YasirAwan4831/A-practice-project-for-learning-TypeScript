@@ -1,39 +1,38 @@
-// Interfaces and Types
+// User data interface
 export interface UserData {
     fullname: string;
     email: string;
-    role?: string;
-    interest?: string;
     message: string;
     newsletter?: boolean;
 }
 
+// Toast options interface
 export interface ToastOptions {
     message: string;
     type: 'success' | 'error' | 'info' | 'warning';
     duration?: number;
 }
 
+// Theme state interface
 export interface ThemeState {
     isDark: boolean;
     toggle: () => void;
 }
 
+// Form validation result
+export interface ValidationResult {
+    isValid: boolean;
+    error?: string;
+}
+
+// Type alias for toast types
 export type ToastType = 'success' | 'error' | 'info' | 'warning';
 
-// Enums
+// Enum for learning modules
 export enum LearningModule {
+    TypeScript = 'TypeScript',
     HTML = 'HTML',
     CSS = 'CSS',
     JavaScript = 'JavaScript',
-    TypeScript = 'TypeScript',
-    React = 'React',
     Git = 'Git'
-}
-
-export enum ProgressStatus {
-    Completed = '✅ Completed',
-    InProgress = '🔄 In Progress',
-    Planned = '📅 Planned',
-    NotStarted = '⭕ Not Started'
 }
