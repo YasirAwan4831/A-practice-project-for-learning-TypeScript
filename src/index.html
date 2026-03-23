@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TypeScript-based learning dashboard with modern features">
+    <meta name="author" content="Muhammad Yasir">
+    <title>CodeCanvas | TypeScript Learning Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="top">
+        <div>
+            <h1>📚 CodeCanvas <span>TypeScript Lab</span></h1>
+            <p>✨ Master TypeScript, HTML, CSS & Modern Web Development</p>
+            <button id="themeToggle">🌙 Dark Mode</button>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>📖 About This Project</h2>
+            <p><strong>TypeScript Learning Journey</strong> — Modern dashboard with TypeScript, strong typing, and interactive features.</p>
+            
+            <h3>📊 Learning Progress</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Status</th>
+                        <th>Completion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>TypeScript Basics</td><td>✅ Active</td><td>75%</td></tr>
+                    <tr><td>HTML5/CSS3</td><td>✅ Active</td><td>90%</td></tr>
+                    <tr><td>JavaScript/TS</td><td>🚀 Advanced</td><td>65%</td></tr>
+                    <tr><td>Git & GitHub</td><td>✅ Active</td><td>80%</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="roadmap">
+            <h2>🧭 Learning Roadmap</h2>
+            <ul>
+                <li><strong>TypeScript</strong> — Static typing, interfaces, generics</li>
+                <li><strong>HTML5</strong> — Semantic markup, accessibility</li>
+                <li><strong>CSS3</strong> — Flexbox, Grid, Animations</li>
+                <li><strong>Modern JS</strong> — ES2020+, Async/Await</li>
+            </ul>
+
+            <details>
+                <summary><strong>📘 Weekly Study Plan</strong></summary>
+                <ul>
+                    <li><strong>Monday:</strong> TypeScript fundamentals</li>
+                    <li><strong>Tuesday:</strong> Interfaces & Types</li>
+                    <li><strong>Wednesday:</strong> Classes & Modules</li>
+                    <li><strong>Thursday:</strong> Project work</li>
+                    <li><strong>Friday:</strong> Code review</li>
+                </ul>
+            </details>
+        </section>
+
+        <section id="projects">
+            <h2>🛠️ TypeScript Projects</h2>
+            <dl>
+                <dt><strong>✅ Task Manager (TypeScript)</strong></dt>
+                <dd>Type-safe task management with localStorage</dd>
+                
+                <dt><strong>🎬 Movie Search API</strong></dt>
+                <dd>TypeScript + Async/Await with OMDB API</dd>
+                
+                <dt><strong>📊 Dashboard with Charts</strong></dt>
+                <dd>Data visualization with TypeScript</dd>
+            </dl>
+        </section>
+
+        <section id="resources">
+            <h2>📚 TypeScript Resources</h2>
+            <ul>
+                <li><a href="https://www.typescriptlang.org/" target="_blank">TypeScript Official Docs</a></li>
+                <li><a href="https://github.com/microsoft/TypeScript" target="_blank">TypeScript GitHub</a></li>
+                <li><a href="https://www.typescriptlang.org/play/" target="_blank">TypeScript Playground</a></li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>📬 Contact Form</h2>
+            <form>
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    
+                    <label for="fullname">Full Name *</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                    <br><br>
+                    
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+                    
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <br><br>
+                    
+                    <label>
+                        <input type="checkbox" name="newsletter"> Subscribe to newsletter
+                    </label>
+                    <br><br>
+                    
+                    <button type="submit">Send Message</button>
+                    <button type="reset">Reset</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 CodeCanvas TypeScript Lab | Built with TypeScript ❤️</p>
+        <a href="#top">⬆️ Back to Top</a>
+    </footer>
+
+    <button id="scrollTopBtn" title="Go to top">⬆️</button>
+
+    <!-- TypeScript compiled JavaScript -->
+    <script src="../dist/main.js"></script>
+</body>
+</html>
