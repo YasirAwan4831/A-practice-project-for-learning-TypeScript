@@ -1,13 +1,14 @@
 import { ThemeState } from '../types/interfaces.js';
+import { showToast } from './toast.js';
 
 class ThemeManager implements ThemeState {
-    private themeToggle: HTMLButtonElement | null;
+    private toggleButton: HTMLButtonElement | null;
     private body: HTMLElement;
     private readonly DARK_CLASS = 'dark';
     
     constructor() {
         this.body = document.body;
-        this.themeToggle = document.getElementById('themeToggle') as HTMLButtonElement;
+        this.toggleButton = document.getElementById('themeToggle') as HTMLButtonElement;
         this.init();
     }
     
@@ -16,44 +17,33 @@ class ThemeManager implements ThemeState {
     }
     
     private loadSavedTheme(): void {
-        const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
-        if (savedTheme === 'dark') {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
             this.body.classList.add(this.DARK_CLASS);
-            if (this.themeToggle) {
-                this.themeToggle.textContent = '☀️ Light Mode';
-            }
-        } else {
-            if (this.themeToggle) {
-                this.themeToggle.textContent = '🌙 Dark Mode';
-            }
+            this.updateButtonText();
+        }
+    }
+    
+    private updateButtonText(): void {
+        if (this.toggleButton) {
+            this.toggleButton.textContent = this.isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
         }
     }
     
     toggle(): void {
         this.body.classList.toggle(this.DARK_CLASS);
+        localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+        this.updateButtonText();
         
-        if (this.isDark) {
-            localStorage.setItem('theme', 'dark');
-            if (this.themeToggle) {
-                this.themeToggle.textContent = '☀️ Light Mode';
-            }
-        } else {
-            localStorage.setItem('theme', 'light');
-            if (this.themeToggle) {
-                this.themeToggle.textContent = '🌙 Dark Mode';
-            }
-        }
+        showToast(
+            this.isDark ? '🌙 Dark mode activated' : '☀️ Light mode activated',
+            'success'
+        );
     }
     
     private setupEventListeners(): void {
-        if (this.themeToggle) {
-            this.themeToggle.addEventListener('click', () => {
-                this.toggle();
-                showToast({
-                    message: this.isDark ? '🌙 Dark mode activated' : '☀️ Light mode activated',
-                    type: 'success'
-                });
-            });
+        if (this.toggleButton) {
+            this.toggleButton.addEventListener('click', () => this.toggle());
         }
     }
     

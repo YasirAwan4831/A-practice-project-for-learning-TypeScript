@@ -2,7 +2,6 @@ import { ToastOptions, ToastType } from '../types/interfaces.js';
 
 class ToastManager {
     private static instance: ToastManager;
-    private toastElement: HTMLDivElement | null = null;
     
     private constructor() {}
     
@@ -18,27 +17,25 @@ class ToastManager {
         
         // Remove existing toast
         const existingToast = document.querySelector('.toast');
-        if (existingToast) {
-            existingToast.remove();
-        }
+        if (existingToast) existingToast.remove();
         
         // Create toast element
         const toast = document.createElement('div');
         toast.className = 'toast';
         toast.textContent = message;
         
-        // Apply styles based on type
+        // Colors based on type
         const colors: Record<ToastType, string> = {
-            success: 'linear-gradient(135deg, #4CAF50, #2e7d32)',
-            error: 'linear-gradient(135deg, #f44336, #d32f2f)',
-            info: 'linear-gradient(135deg, #2196F3, #1976D2)',
-            warning: 'linear-gradient(135deg, #ff9800, #f57c00)'
+            success: '#4CAF50',
+            error: '#f44336',
+            info: '#2196F3',
+            warning: '#ff9800'
         };
         
         toast.style.background = colors[type];
         document.body.appendChild(toast);
         
-        // Animate
+        // Show animation
         setTimeout(() => toast.classList.add('show'), 10);
         
         // Auto remove
@@ -49,7 +46,7 @@ class ToastManager {
     }
 }
 
-// Global function for backward compatibility
+// Export function
 export const showToast = (message: string, type: ToastType = 'info'): void => {
     ToastManager.getInstance().show({ message, type });
 };
